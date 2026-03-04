@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Chess Online</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="center">
+
+<div class="card">
+    <h1>♟ Chess Online</h1>
+    <input id="name" placeholder="Dein Name">
+    <button onclick="start()">Start</button>
+</div>
+
+<script>
+    if (localStorage.getItem("name")) {
+        location.href = "lobby.html";
+    }
+
+    function start() {
+        const name = document.getElementById("name").value.trim();
+        if (name.length < 2) return alert("Name zu kurz");
+        localStorage.setItem("name", name);
+        location.href = "lobby.html";
+    }
+</script>
+
+</body>
+</html>
