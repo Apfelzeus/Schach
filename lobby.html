@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Lobby</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="sidebar">
+    <h2 id="myName"></h2>
+</div>
+
+<div class="main">
+    <h1>Lobby</h1>
+
+    <div class="card">
+        <h3>Spieler einladen</h3>
+        <input id="invite" placeholder="Name eingeben">
+        <button onclick="invite()">Einladen</button>
+    </div>
+
+    <div class="card">
+        <h3>Regeln</h3>
+        <label>Damen:</label>
+        <input type="number" id="queens" value="1">
+        <label>Springer:</label>
+        <input type="number" id="knights" value="2">
+        <button onclick="startGame()">Spiel starten</button>
+    </div>
+</div>
+
+<script>
+    document.getElementById("myName").innerText =
+        "👤 " + localStorage.getItem("name");
+
+    function invite() {
+        alert("Einladung an " + invite.value + " (Demo)");
+    }
+
+    function startGame() {
+        localStorage.setItem("rules", JSON.stringify({
+            queens: queens.value,
+            knights: knights.value
+        }));
+        location.href = "game.html";
+    }
+</script>
+
+</body>
+</html>

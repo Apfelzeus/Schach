@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="sidebar">
+    <h2 id="myName"></h2>
+</div>
+
+<div class="main">
+    <h1>Schachspiel</h1>
+    <div class="board" id="board"></div>
+</div>
+
+<script>
+    document.getElementById("myName").innerText =
+        "👤 " + localStorage.getItem("name");
+
+    const board = document.getElementById("board");
+
+    for (let i = 0; i < 64; i++) {
+        const sq = document.createElement("div");
+        sq.className = "square " + ((Math.floor(i / 8) + i) % 2 ? "dark" : "light");
+        board.appendChild(sq);
+    }
+</script>
+
+</body>
+</html>
